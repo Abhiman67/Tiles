@@ -22,7 +22,10 @@ localStorage.setItem('tiles-client-id', storedClientId);
 const storedName = localStorage.getItem('tiles-display-name') || `Student ${Math.floor(Math.random() * 900 + 100)}`;
 nameInput.value = storedName;
 
-const socketUrl = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}`;
+const localSocketUrl = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}`;
+const socketUrl = location.hostname === 'localhost'
+  ? localSocketUrl
+  : 'wss://tiles-8m4p.onrender.com';
 let socket = null;
 let reconnectTimer = null;
 let hasBuiltBoard = false;

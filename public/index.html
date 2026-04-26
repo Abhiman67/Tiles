@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiles - Shared Grid</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="panel">
+      <div class="brand-row">
+        <div>
+          <p class="eyebrow">Shared grid project</p>
+          <h1>Tiles</h1>
+        </div>
+        <div class="status-chip" id="connectionStatus">Offline</div>
+      </div>
+
+      <p class="subtitle">
+        Click a tile to capture it. Everyone connected to the board sees the update instantly.
+      </p>
+
+      <label class="field-label" for="nameInput">Your name</label>
+      <div class="name-row">
+        <input id="nameInput" type="text" maxlength="20" placeholder="Your name" />
+        <button id="saveNameBtn">Save</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>Connected</span>
+          <strong id="connectedCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Claimed</span>
+          <strong id="claimedCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Open</span>
+          <strong id="openCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Your tiles</span>
+          <strong id="myTilesCount">0</strong>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div><span class="swatch mine"></span> Your tiles</div>
+        <div><span class="swatch taken"></span> Taken tiles</div>
+        <div><span class="swatch open"></span> Open tiles</div>
+      </div>
+
+      <div class="activity-box">
+        <h2>Live feed</h2>
+        <p id="activityText">Waiting for the board to connect...</p>
+      </div>
+    </aside>
+
+    <section class="board-panel">
+      <div class="board-header">
+        <div>
+          <p class="board-kicker">20 x 20 grid</p>
+          <h2>Click a square and claim it before someone else does.</h2>
+        </div>
+        <div class="board-note">Hover and click any open tile.</div>
+      </div>
+
+      <div id="board" class="board" aria-label="Shared grid board"></div>
+    </section>
+  </main>
+
+  <script src="client.js"></script>
+</body>
+</html>
